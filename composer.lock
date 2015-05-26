@@ -2568,12 +2568,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/voryx/ThruwayBundle.git",
-                "reference": "9ed8b029f92791f04177a55ff06f81d3a48eb0dd"
+                "reference": "06807f56b69cf5d0e69476a39e0fe784e5be2565"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voryx/ThruwayBundle/zipball/9ed8b029f92791f04177a55ff06f81d3a48eb0dd",
-                "reference": "9ed8b029f92791f04177a55ff06f81d3a48eb0dd",
+                "url": "https://api.github.com/repos/voryx/ThruwayBundle/zipball/06807f56b69cf5d0e69476a39e0fe784e5be2565",
+                "reference": "06807f56b69cf5d0e69476a39e0fe784e5be2565",
                 "shasum": ""
             },
             "require": {
@@ -2620,7 +2620,7 @@
                 "sockets",
                 "symfony"
             ],
-            "time": "2015-05-22 14:57:44"
+            "time": "2015-05-26 13:34:21"
         }
     ],
     "packages-dev": [
