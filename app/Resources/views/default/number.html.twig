@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+    <h2>Now Serving</h2>
+
+    <h1 id="serving"></h1>
+
+    <style>
+        h1 {
+            font-size: 100px;
+        }
+    </style>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+
+    <script>
+
+        var connection = new autobahn.Connection({
+            url: "ws://127.0.0.1:8989",
+            realm: "realm1"
+        });
+
+        connection.onopen = function (session) {
+
+            session.subscribe('line_change', function (args) {
+                $("#serving").html(args[0]);
+            });
+
+        };
+
+        connection.open();
+
+    </script>
+
+{% endblock %}
