@@ -22,6 +22,7 @@ class PersonRepository extends EntityRepository
     {
         $em = $this->getEntityManager();
 
+
         $person = new Person();
         $person->setSession($details->getDetails()->caller);
         $em->persist($person);
@@ -30,7 +31,6 @@ class PersonRepository extends EntityRepository
 
         return $person;
     }
-
 
     /**
      * @return Person|null

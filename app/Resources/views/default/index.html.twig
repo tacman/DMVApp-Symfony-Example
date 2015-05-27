@@ -1,5 +1,58 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block body %}
-    Homepage.
+
+    <h1>The Line-inator 5000</h1>
+
+    <button id="in-line">Get In Line</button>
+
+    <h1 id="number"></h1>
+
+    <h1 id="serving"></h1>
+
+    <ul class="list-inline">
+        <li><a class="btn btn-default" href="{{ path('home') }}" target="clerk">Open New Visitor Window</a></li>
+        <li> <a class="btn btn-default" href="{{ path('clerk') }}" target="clerk">Open Clerk Window</a></li>
+        <li><a class="btn btn-default" href="{{ path('number') }}" target="clerk">Open Number Window</a></li>
+    </ul>
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+
+<script>
+    {{ block('autobahn_connection') }}
+    connection.onopen = function (session) {
+        var yourNumber;
+
+        session.subscribe('line_change', function (args) {
+
+            var message;
+
+            if (yourNumber === args[0]) {
+                message = 'Now serving your number!!!';
+            } else {
+                message = 'Now serving ' + args[0];
+            }
+
+            $("#serving").html(message);
+
+        });
+
+        var inline = $("#in-line");
+        inline.off('click');
+        inline.on('click', function () {
+            return session.call('get_in_line').then(function (res) {
+                yourNumber = res;
+                $("#number").html('Your number is ' + res);
+            });
+
+        });
+
+    };
+
+    connection.open();
+    </script>
+
 {% endblock %}

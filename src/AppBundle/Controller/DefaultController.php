@@ -8,6 +8,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Voryx\ThruwayBundle\Annotation\Register;
 use Voryx\ThruwayBundle\Annotation\Worker;
 
+use Symfony\Component\HttpFoundation\Response as HttpResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+
+
 /**
  * @Worker("line", maxProcesses="5")
  *
@@ -16,6 +25,31 @@ use Voryx\ThruwayBundle\Annotation\Worker;
  */
 class DefaultController extends Controller
 {
+
+    /**
+     * @Route("/", name="home")
+     */
+    public function indexAction(Request $request)
+    {
+        $repo = $this->getDoctrine()->getRepository('AppBundle:Person');
+        dump($repo->findAll());
+        return $this->render(":default:index.html.twig");
+    }
+    /**
+     * @Route("/clerk", name="clerk")
+     */
+    public function Action(Request $request)
+    {
+        return $this->render(":default:clerk.html.twig");
+    }
+
+    /**
+     * @Route("/number", name="number")
+     */
+    public function numberAction(Request $request)
+    {
+        return $this->render(":default:number.html.twig");
+    }
 
     /**
      *

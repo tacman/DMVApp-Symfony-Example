@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    Body
+{% endblock %}
+
+{% block autobahn_connection %}
+    var connection = new autobahn.Connection({
+    url: "ws://127.0.0.1:8989",
+    realm: "realm1"
+    });
+{% endblock %}
+
+{% block javascripts %}
+<script src="/bower_components/autobahn/autobahn.min.js"></script>
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+{% endblock %}
