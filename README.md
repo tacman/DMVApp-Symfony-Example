@@ -34,11 +34,10 @@ Usage
 =====
 
 * Open http://127.0.0.1:8000/app_dev.php/ in your browser
-* Get in line 
-* Click on *Open New Visitor Window*, and get in line there.
-* Click on "Open Number Window" to see what number is being served
-* Click on "Open Clerk Window" so that you can increment the number being served, simulating the Arduino
+* Get in line, using the windows at the bottom of the screen
+* Click on "Next" in the upper left (clerk window) to advance the number being served.
 
+Any of the windows can be opened with the buttons at the bottom, this makes it easier to see the javascript debugger.
 
 
     
