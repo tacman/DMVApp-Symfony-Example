@@ -33,8 +33,8 @@ starting the web server, or configure it using nginx or apache.
 Usage
 =====
 
-* Open 127.0.0.1:8000 in your browser
-* Get in line.
+* Open http://127.0.0.1:8000/app_dev.php/ in your browser
+* Get in line 
 * Click on *Open New Visitor Window*, and get in line there.
 * Click on "Open Number Window" to see what number is being served
 * Click on "Open Clerk Window" so that you can increment the number being served, simulating the Arduino

@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-8">
+            <iframe src="{{ path('clerk') }}" height="400px" width="100%" ></iframe>
+        </div>
+        <div class="col-md-4">
+            <iframe src="{{ path('number') }}" height="400px" width="100%" ></iframe>
+        </div>
+    </div>
+    <div class="row">
+        {% for i in 0..3 %}
+            <div class="col-md-3">
+                <iframe src="{{ path('get_in_line') }}" height="400px" width="100%" ></iframe>
+            </div>
+        {% endfor %}
+    </div>
+
+    <ul class="list-inline">
+        <li><a class="btn btn-default" href="{{ path('get_in_line') }}" target="_blank">Open New Visitor Window</a></li>
+        <li> <a class="btn btn-default" href="{{ path('clerk') }}" target="clerk">Open Clerk Window</a></li>
+        <li><a class="btn btn-default" href="{{ path('number') }}" target="_blank">Open Number Window</a></li>
+    </ul>
+
+{% endblock %}

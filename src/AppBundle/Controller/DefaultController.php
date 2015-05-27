@@ -27,13 +27,23 @@ class DefaultController extends Controller
 {
 
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="combo")
      */
-    public function indexAction(Request $request)
+    public function comboAction(Request $request)
     {
         $repo = $this->getDoctrine()->getRepository('AppBundle:Person');
+        return $this->render(":default:combo.html.twig");
+    }
+
+    /**
+     * @Route("/get_in_line", name="get_in_line")
+     */
+    public function getInLineAction(Request $request)
+    {
+        /*$repo = $this->getDoctrine()->getRepository('AppBundle:Person');
         dump($repo->findAll());
-        return $this->render(":default:index.html.twig");
+        */
+        return $this->render(":default:getInLine.html.twig");
     }
     /**
      * @Route("/clerk", name="clerk")
